@@ -14,33 +14,38 @@
   
             <div class="form-group">
               <label for="nome">Nome</label>
-              <input  class="form-control" type="text" name="nome" id="nome" placeholder="Seu nome"  >
+              <!--Puxando o ngModel e indicando de onde vem a informação User(classe).nome(campo)-->
+              <!--ngModel tem a função de ficar vizualisando todos os conteudos que são passados pelo formulário-->
+              <input [(ngModel)] = 'user.nome'  class="form-control" type="text" name="nome" id="nome" placeholder="Seu nome"  >
             </div>
   
             <div class="form-group">
               <label for="usuario">Usuário</label>
-              <input  class="form-control" type="text" name="usuario" id="usuario" placeholder="Seu usuário">
+              <input [(ngModel)] = 'user.usuario' class="form-control" type="text" name="usuario" id="usuario" placeholder="Seu usuário">
             </div>
   
             <div class="form-group">
               <label for="foto">Link da Foto</label>
-              <input  class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
+              <input [(ngModel)]="user.foto" class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
             </div>
   
             <div class="form-group">
               <label for="senha">Senha</label>
-              <input  class="form-control" type="password" name="senha" id="senha" placeholder="Sua senha">
+              <!--Passando o evento "ConfirmSenha" com o evento "IMPUT"-->
+              <!--IMPUT - Evento que pega o valor que foi digitado-->
+              <input (input)='confirmSenha($event)' class="form-control" type="password" name="senha" id="senha" placeholder="Sua senha">
             </div>
   
             <div class="form-group">
               <label for="confirmSenha">Confirmar Senha</label>
-              <input  class="form-control" type="password" name="confirmSenha" id="confirmSenha"
+              <input [(ngModel)]='user.senha' class="form-control" type="password" name="confirmSenha" id="confirmSenha"
                 placeholder="Confirme sua senha">
             </div>
   
             <div class="form-group">
               <label for="tipo">Tipo de Usuário</label>
-              <select class="form-control" name="tipo" id="tipo" >
+              <!--CHANGE - Evento para escolher uma opção, no caso as opções normal ("Normal") ou adm ("Administrador")-->
+              <select class="form-control" name="tipo" id="tipo" (change)="tipoUser($event)">
                 <option>Selecione um tipo de usuário:</option>
                 <option value="normal">Normal</option>
                 <option value="adm">Administrador</option>
@@ -48,8 +53,10 @@
             </div>
   
             <div class="d-flex justify-content-center">
+              <!--RouterLink = Indicando que ele vai voltar para a pagina "entrar" caso ele cancele o cadastro-->
               <button type="submit" class="btn btn-danger mr-4" style="margin: 0 15px;" routerLink="/entrar" >Cancelar</button>
-              <button type="submit" class="btn btn-success mr-4" style="margin: 0 15px;">Cadastrar</button>
+              <!--Click = indicando que ele vai executar o metodo "cadastro" quando ele clicar no botão-->
+              <button type="submit" class="btn btn-success mr-4" style="margin: 0 15px;" (click)='cadastrar()'>Cadastrar</button>
             </div>
   
           </div>

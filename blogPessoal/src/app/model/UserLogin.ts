@@ -1,3 +1,4 @@
+//OS NOMES DOS CAMPOS DEVEM SER IGUAIS AOS SEUS RESPECTIVOS IDS
 export class UserLogin{
     public id: number
     public nome: string
