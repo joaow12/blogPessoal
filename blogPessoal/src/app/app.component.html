@@ -1,2 +1,10 @@
-<!--Irá pegar a rota criada e assim determinar qual será a pagina quando o site for carregado, no caso será o "entrar"-->
+<!--O que tiver aqui será o que irá mostrar na tela-->
+
+<!--Informando usando o "ngIf" que o app=menu só irá ser mostrado se a função "logado()" tiver um retorno positivo-->
+<app-menu *ngIf="auth.logado()"></app-menu>
+
+<!--Irá pegar a rota criada no "app-routing.module" e assim determinar qual será a pagina quando o site for carregado, no caso será o "entrar"-->
 <router-outlet></router-outlet>
+
+<!--A mesma coisa q foi feita no "app-menu"-->
+<app-rodape *ngIf="auth.logado()"></app-rodape>

@@ -10,6 +10,7 @@ import { EntrarComponent } from './entrar/entrar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { FormsModule } from '@angular/forms';
 import { InicioComponent } from './inicio/inicio.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,12 @@ import { InicioComponent } from './inicio/inicio.component';
     //Modulo para poder pegar os inputs do usuário nos forms, apos importar esse modulo é possivel usar o "NgModel"
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,11 +6,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto d-flex align-items-center ">
           <li class="nav-item active">
-           <img src="../../assets/img/fotocapa.jpg" alt="" width="50px" height="50px"
+            <!--src esta puxando o atributo do menu.component.ts e colocando no campo, no caso ta pegando a String da foto (a url dela) e colocando 
+            no campo img para assim aparecer na tela-->
+           <img src="{{foto}}" alt="" width="50px" height="50px"
            class="img-fluid rounded-circle " style="margin: 0 15px;">
           </li>
           <li class="nav-item pl-3">
-           <p class="m-0 font-weight-bold text-white fs-16  " style="margin: 0 15px;">Nome do Usuário</p>
+            <!--Fazendo a mesma coisa da foto, mas dessa vez com o nome-->
+           <p class="m-0 font-weight-bold text-white fs-16  " style="margin: 0 15px;">{{nome}}</p>
           </li>
           <li class="nav-item pl-3">
               <a href="">
@@ -22,7 +25,7 @@
            </ul>
            <ul class="navbar-nav ml-auto d-flex align-items-center ">
                <li class="nav-item pl-3 padding=25px">
-                   <a class="m-0 font-weight-bold text-white fs-16 " >Sair <i class="fa fa-sign-out"
+                   <a (click)="sair()" class="m-0 font-weight-bold text-white fs-16 " >Sair <i class="fa fa-sign-out"
                     aria-hidden="true" style="margin: 0 15px;"></i></a>
                </li>
 
