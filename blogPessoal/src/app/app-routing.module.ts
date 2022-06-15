@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { TemaComponent } from './tema/tema.component';
 
 //Array de objetos de rotas
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   //Usando os mesmos criterios do "entrar", só mudando para o cadastro
   {path: 'cadastrar', component:CadastrarComponent},
   //Passando a rota para o inicio (pagina inicial), usado no botão entrar em (entrar.component.html)
-  {path: 'inicio', component:InicioComponent}
+  {path: 'inicio', component:InicioComponent},
+  {path : 'tema', component:TemaComponent}
 ];
 
 @NgModule({
